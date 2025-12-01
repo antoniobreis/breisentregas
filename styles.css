@@ -555,57 +555,77 @@ body {
 
 .contact-info {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
     gap: 30px;
 }
 
-.contact-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 20px;
-    background-color: #383838;
-    padding: 30px;
-    border-radius: 10px;
-    transition: all 0.3s;
-    border: 2px solid transparent;
+.contact-info {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Divide em 2 colunas iguais */
+    gap: 40px;
+    width: 100%;
 }
 
-.contact-item:hover {
+/* O Cartão de cada pessoa */
+.person-card {
+    background-color: #383838;
+    padding: 40px 30px;
+    border-radius: 10px;
+    border: 2px solid transparent;
+    transition: all 0.3s;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centraliza tudo horizontalmente */
+    text-align: center;
+}
+
+.person-card:hover {
     border-color: #fdda25;
     transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(253, 218, 37, 0.3);
+    box-shadow: 0 10px 20px rgba(253, 218, 37, 0.2);
 }
 
-.contact-item i {
-    font-size: 2rem;
+/* Nome da Pessoa (h3) */
+.person-name {
     color: #fdda25;
-    min-width: 40px;
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    border-bottom: 1px solid #555; /* Uma linha sutil embaixo do nome */
+    padding-bottom: 15px;
+    width: 100%;
 }
 
-.contact-item h4 {
+/* Cada linha de contato (ícone + texto) */
+.contact-detail {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 15px;
+    width: 100%;
+}
+
+/* Ícones */
+.contact-detail i {
     color: #fdda25;
-    font-size: 1.1rem;
-    margin-bottom: 8px;
-    font-weight: 600;
-    white-space: nowrap;
+    font-size: 1.4rem;
+    min-width: 30px; /* Garante alinhamento se o ícone mudar */
 }
 
-.contact-item a {
+/* Links (Telefone e Email) */
+.contact-detail a {
     color: #ffffff;
     text-decoration: none;
-    font-size: 1rem;
+    font-size: 1.1rem;
     font-weight: 400;
     transition: color 0.3s;
+    white-space: nowrap; /* Garante que o email fique numa linha só no PC */
 }
 
-.contact-item a:hover {
+.contact-detail a:hover {
     color: #fdda25;
-}
-
-.contact-item p {
-    color: #ffffff;
-    font-size: 1rem;
-    font-weight: 400;
 }
 
 /* Localização */
@@ -810,6 +830,26 @@ body {
 
 /* Responsividade */
 @media (max-width: 1024px) {
+    .info-boxes {
+        gap: 15px; /* Era 30px, diminuímos para sobrar espaço para as caixas */
+        padding-left: 15px; /* Reduzimos o padding lateral da seção também */
+        padding-right: 15px;
+    } 
+
+    .info-box {
+        padding: 30px 15px; /* Menos padding lateral para o texto respirar */
+    }
+ 
+    .info-box h3 {
+        font-size: 1.1rem; /* Era 1.5rem. Isso vai fazer a palavra caber inteira */
+        word-break: normal; /* Tenta manter a palavra inteira */
+    }
+
+    .info-box i {
+        font-size: 2.2rem; 
+        margin-bottom: 15px;
+    }
+    
     .about-content {
         grid-template-columns: 1fr;
     }
@@ -836,6 +876,21 @@ body {
 
     .vmv-card-valores {
         height: auto;
+    }
+
+    .section-content {
+        padding-left: 40px;  /* Mais espaço na esquerda */
+        padding-right: 40px; /* Mais espaço na direita */
+    }
+
+    /* 2. Ajustamos os cartões de contato para não ficarem tão separados */
+    .contact-info {
+        gap: 20px; /* Diminui o vão (era 40px) para sobrar mais espaço lateral */
+    }
+    
+    /* Opcional: Se ainda achar que o cartão está muito largo */
+    .person-card {
+        padding: 30px 20px; /* Ajusta levemente o padding interno do cartão */
     }
 
     .location-content {
@@ -917,7 +972,8 @@ body {
 
     .menu-links {
         flex-direction: row;
-        flex-wrap: wrap;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
         justify-content: center;
         gap: 4px;
         width: 100%;
@@ -961,6 +1017,23 @@ body {
 
     .partner-logos {
         grid-template-columns: 1fr;
+    }
+
+    .person-card {
+    padding: 20px 10px; /* Reduzi as laterais de 30px para 10px */
+    }
+
+    .contact-detail a {
+    font-size: 0.75rem; 
+    white-space: nowrap; 
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    }
+    
+    .contact-detail {
+    flex-direction: column; /* Ícone em cima, texto embaixo */
+    gap: 5px;
     }
 
     .footer-content {
@@ -1036,7 +1109,8 @@ body {
 
     .menu-links {
         flex-direction: row;
-        flex-wrap: wrap;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
         gap: 4px;
         width: 100%;
         justify-content: center;
@@ -1181,21 +1255,22 @@ body {
     }
 
     .contact-info {
-        grid-template-columns: 1fr;
-        gap: 20px;
+        grid-template-columns: 1fr; /* Uma coluna só no celular */
+        gap: 30px;
     }
 
-    .contact-item {
-        padding: 25px 20px;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
+    .contact-detail {
+        flex-direction: column; /* Coloca o ícone em cima do texto no celular */
+        gap: 8px;
+        margin-bottom: 20px;
     }
-
-    .contact-item h4 {
-        white-space: normal;
+    
+    .contact-detail a {
+        font-size: 0.9rem; /* Diminui um pouco a letra */
+        white-space: normal; /* Permite quebrar linha se necessário no celular */
+        word-break: break-all;
     }
-
+    
     .location-content {
         gap: 25px;
     }
@@ -1248,5 +1323,35 @@ body {
 
     .footer-bottom p {
         font-size: 0.85rem;
+    }
+}
+
+/* --- REGRA DE EMERGÊNCIA PARA CELULARES PEQUENOS (MOBILE S) --- */
+@media (max-width: 360px) {
+    
+    /* 1. Removemos quase todo o espaço lateral do cartão */
+    .person-card {
+        padding-left: 4px !important;
+        padding-right: 4px !important;
+    }
+
+    /* 2. O ícone fica em cima e o texto embaixo (para ganhar largura) */
+    .contact-detail {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    /* 3. A Mágica: Tamanho da fonte baseada na largura da tela (vw) */
+    .contact-detail a {
+        /* "3.8vw" significa: use 3.8% da largura da tela como tamanho da letra.
+           Isso garante que a fonte diminua proporcionalmente se a tela diminuir. */
+        font-size: 3.8vw !important; 
+        
+        white-space: nowrap !important; /* Proíbe quebra de linha */
+        letter-spacing: -0.5px; /* Junta um pouquinho as letras */
+    }
+    
+    .person-name {
+        font-size: 1.2rem; /* Diminui um pouco o nome também */
     }
 }
