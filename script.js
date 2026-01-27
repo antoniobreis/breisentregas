@@ -24,3 +24,14 @@ indicators.forEach((indicator, index) => {
         showSlide(currentSlide);
     });
 });
+
+// Atualizar ano automaticamente
+function updateCurrentYear() {
+    const currentYearElement = document.getElementById('current-year');
+    if (currentYearElement) {
+        currentYearElement.textContent = new Date().getFullYear();
+    }
+}
+
+// Executar quando a página carregar
+document.addEventListener('DOMContentLoaded', updateCurrentYear);
