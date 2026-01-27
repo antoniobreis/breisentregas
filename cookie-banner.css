@@ -1,0 +1,95 @@
+/* Banner de Consentimento de Cookies LGPD */
+.cookie-banner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.95);
+    color: #ffffff;
+    padding: 20px;
+    z-index: 9999;
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.3);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.cookie-banner-content {
+    flex: 1;
+    min-width: 250px;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #cccccc;
+}
+
+.cookie-banner-content a {
+    color: #fdda25;
+    text-decoration: underline;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.cookie-banner-content a:hover {
+    color: #ffc107;
+}
+
+.cookie-banner-button {
+    background-color: #fdda25;
+    color: #1a1a1a;
+    border: none;
+    padding: 12px 24px;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s;
+    white-space: nowrap;
+    font-family: "Lexend Exa", sans-serif;
+}
+
+.cookie-banner-button:hover {
+    background-color: #ffc107;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(253, 218, 37, 0.3);
+}
+
+.cookie-banner.hidden {
+    display: none;
+}
+
+/* Responsividade para dispositivos móveis */
+@media (max-width: 768px) {
+    .cookie-banner {
+        flex-direction: column;
+        text-align: center;
+        padding: 15px;
+        gap: 15px;
+    }
+    
+    .cookie-banner-content {
+        font-size: 13px;
+        min-width: 100%;
+    }
+    
+    .cookie-banner-button {
+        width: 100%;
+        max-width: 200px;
+    }
+}
+
+@media (max-width: 480px) {
+    .cookie-banner {
+        padding: 12px;
+    }
+    
+    .cookie-banner-content {
+        font-size: 12px;
+    }
+    
+    .cookie-banner-button {
+        padding: 10px 20px;
+        font-size: 13px;
+    }
+}
