@@ -1516,7 +1516,7 @@ body {
 }
 
 .agency-credit a {
-    text-decoration: none;
+    text-decoration: none !important;
     color: inherit;
     transition: all 0.3s ease;
 }
