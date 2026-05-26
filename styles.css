@@ -1525,3 +1525,49 @@ body {
     opacity: 1;
     color: #fdda25;
 }
+
+/* Estilos da página de Política de Privacidade */
+.privacy-content {
+    text-align: left;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.privacy-content h2 {
+    color: #fdda25;
+    font-size: 1.4rem;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+.privacy-content p {
+    line-height: 1.8;
+    margin-bottom: 20px;
+    color: #cccccc;
+}
+
+.privacy-content ul {
+    line-height: 1.8;
+    margin-bottom: 20px;
+    color: #cccccc;
+    padding-left: 20px;
+}
+
+.privacy-content li {
+    margin-bottom: 10px;
+}
+
+.privacy-content a {
+    color: #fdda25;
+}
+
+.privacy-content .last-update {
+    font-size: 0.9rem;
+}
+
+.footer-bottom .privacy-link {
+    color: #ccc;
+    margin-left: 15px;
+    font-size: 0.8rem;
+    text-decoration: none;
+}
