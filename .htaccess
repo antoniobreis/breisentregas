@@ -1,0 +1,14 @@
+RewriteEngine On
+
+# 1. Força a remoção do index.html da URL (redireciona para a raiz /)
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /index\.html\ HTTP/
+RewriteRule ^index\.html$ / [R=301,L]
+
+# 2. Força a remoção do .html de outras páginas (ex: redireciona /sobre.html para /sobre)
+RewriteCond %{THE_REQUEST} /([^.]+)\.html [NC]
+RewriteRule ^ /%1 [NC,L,R=301]
+
+# 3. Lê os arquivos .html internamente quando a URL limpa é acessada
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.html -f
+RewriteRule ^(.*)$ $1.html [NC,L]
